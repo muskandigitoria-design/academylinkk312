@@ -1,285 +1,265 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radhe Khaiwal Official</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> Landing Page</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --gold: #d4af37;
-            --light-gold: #f9e29c;
-            --wa-green: #25D366;
-            --wa-dark: #128C7E;
-            --dark-bg: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            /* Naya Blue aur Silver Theme */
+            --primary-glow: #007cf0;
+            --secondary-glow: #00dfd8;
+            --accent-gradient: linear-gradient(135deg, #e0e0e0, #ffffff, #a1a1a1, #ffffff, #bdbdbd);
+            --btn-gradient: linear-gradient(135deg, #007cf0, #00dfd8);
         }
 
-        body {
-            background-color: var(--dark-bg);
-            color: white;
-            font-family: 'Poppins', sans-serif;
+        * {
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%);
-            padding-bottom: 50px;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #020617; /* Deep Midnight Blue background */
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow: hidden;
+            position: fixed;
+        }
+
+        /* --- BLURRY AURA ANIMATION --- */
+        .background-wrapper {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+
+        .blob {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-1 { top: -10%; left: -10%; background: #0051ff; }
+        .blob-2 { bottom: -10%; right: -10%; background: #00dfd8; animation-duration: 25s; }
+        .blob-3 { top: 40%; left: 30%; width: 250px; height: 250px; background: #ffffff; opacity: 0.3; animation-duration: 15s; }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(120px, 120px) scale(1.3); }
         }
 
         .container {
-            max-width: 450px;
-            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            padding: 20px;
             text-align: center;
-            padding: 30px 0;
+            z-index: 10;
         }
 
-        /* Logo Styling */
-        .logo-container {
+        .logo-wrapper {
             margin-bottom: 15px;
         }
 
-        .logo-img {
-            width: 140px;
-            height: 140px;
+        .logo {
+            width: 115px;
+            height: 115px;
             border-radius: 50%;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            object-fit: cover;
+            padding: 3px;
+            background: var(--accent-gradient);
+            box-shadow: 0 0 25px rgba(0, 124, 240, 0.6);
+            animation: float 4s ease-in-out infinite;
+            margin: 0 auto;
         }
 
-        /* Title Styling */
+        .logo img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #020617;
+            display: block;
+        }
+
         h1 {
             font-family: 'Cinzel', serif;
-            color: var(--gold);
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 7vw, 2.5rem);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
             letter-spacing: 1px;
-            margin: 10px 0 5px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            filter: drop-shadow(0 2px 10px rgba(255,255,255,0.2));
         }
 
-        .subtitle {
+        .team-tag {
             font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: #aaa;
+            letter-spacing: 5px;
+            color: #00dfd8; /* Cyan color for accent */
             text-transform: uppercase;
             margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 223, 216, 0.5);
         }
 
-        /* Green WhatsApp Button */
-        .cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--wa-green), var(--wa-dark));
-            color: #fff;
-            text-decoration: none;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 28px;
             width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 25px;
+            max-width: 400px;
+            margin-bottom: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .glass-panel p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d1d5db;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .stat-item b { color: #ffffff; font-size: 1.2rem; }
+        .stat-item p { font-size: 0.65rem; text-transform: uppercase; color: #00dfd8; opacity: 0.9; }
+
+        .btn-telegram {
+            width: 100%;
+            max-width: 320px;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            background: var(--btn-gradient);
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 124, 240, 0.4);
+            animation: zoomPulse 2s infinite ease-in-out;
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5);
-            filter: brightness(1.1);
+        @keyframes zoomPulse {
+            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0, 124, 240, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 15px 40px rgba(0, 124, 240, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 10px 30px rgba(0, 124, 240, 0.4); }
         }
 
-        .cta-button i {
-            margin-right: 12px;
-            font-size: 1.6rem;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* Glass Card */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .rate-box {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        /* BOLD RATE styling */
-        .rate-box b {
-            display: block;
-            color: var(--light-gold);
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-top: 5px;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-        }
-
-        /* Timing Table */
-        .timing-grid {
-            text-align: left;
-            margin: 20px 0;
-        }
-
-        .timing-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .timing-row:last-child { border-bottom: none; }
-
-        .game-name { 
-            color: var(--light-gold); 
-            font-weight: 600; 
-            font-size: 0.95rem;
-        }
-        
-        .game-time { 
-            background: rgba(255,255,255,0.1);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        /* Stats Section */
-        .stats-container {
-            display: flex;
-            justify-content: space-around;
+        .footer {
             margin-top: 25px;
-            background: rgba(0,0,0,0.3);
-            padding: 15px 5px;
-            border-radius: 15px;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            letter-spacing: 1.5px;
+            text-align: center;
         }
 
-        .stat-item h3 { color: var(--gold); margin: 0; font-size: 1.2rem; }
-        .stat-item p { font-size: 0.65rem; color: #aaa; margin: 0; text-transform: uppercase; font-weight: 600; }
-
-        /* Footer */
-        .footer-text {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: #777;
-            line-height: 1.6;
-        }
-
-        .nexgroww { 
-            color: var(--gold); 
-            font-weight: bold; 
-            text-decoration: none; 
-            border-bottom: 1px solid var(--gold);
-        }
-
-        /* Pulsing effect for the LIVE status */
-        .pulse {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: #ff3b3b;
-            border-radius: 50%;
-            margin-right: 5px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
+        .agency-link {
+            color: #00dfd8;
+            text-decoration: none;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
+    <div class="background-wrapper">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
     <div class="container">
-        <div class="logo-container">
-            <img src="https://oneononeexperts.site/wp-content/uploads/2026/02/download.jpg" alt="Radhe Khaiwal Logo" class="logo-img">
-        </div>
-
-        <h1>RADHE KHAIWAL OFFICIAL</h1>
-        <div class="subtitle">GHAZIABAD • FARIDABAD • SATTA MATKA</div>
-
-        <a href="https://wa.me/917015344307" class="cta-button">
-            <i class="fab fa-whatsapp"></i> JOIN WHATSAPP NOW
-        </a>
-
-        <div class="glass-card">
-            <div class="rate-box">
-                JODI RATE <br>
-                <b>₹10 KA ₹970</b>
-            </div>
-
-            <div class="timing-grid">
-                <div class="timing-row">
-                    <span class="game-name">DELHI BAZAR</span>
-                    <span class="game-time">03:05 PM</span>
-                </div>
-                <div class="timing-row">
-                    <span class="game-name">SHREE GANESH</span>
-                    <span class="game-time">04:40 PM</span>
-                </div>
-                <div class="timing-row">
-                    <span class="game-name">FARIDABAD</span>
-                    <span class="game-time">06:00 PM</span>
-                </div>
-                <div class="timing-row">
-                    <span class="game-name">GHAZIABAD</span>
-                    <span class="game-time">09:25 PM</span>
-                </div>
-                <div class="timing-row">
-                    <span class="game-name">GALI</span>
-                    <span class="game-time">11:25 PM</span>
-                </div>
-                <div class="timing-row">
-                    <span class="game-name">DESAWAR</span>
-                    <span class="game-time">04:30 AM</span>
-                </div>
-            </div>
-
-            <div class="stats-container">
-                <div class="stat-item">
-                    <h3>99%+</h3>
-                    <p>Accuracy</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50K+</h3>
-                    <p>Players</p>
-                </div>
-                <div class="stat-item">
-                    <h3><span class="pulse"></span>LIVE</h3>
-                    <p>Results</p>
-                </div>
+        <div class="logo-wrapper">
+            <div class="logo">
+                <img src="https://thinkbigx.sbs/wp-content/uploads/2026/02/rochit.jpg" alt="Logo">
             </div>
         </div>
 
-        <a href="https://wa.me/917015344307" class="cta-button">
-            <i class="fab fa-whatsapp"></i> JOIN WHATSAPP NOW
-        </a>
+      <h1>Nifty and Banknifty call ( SEBI REGISTERED)</h1>
+    <div class="team-tag">Free Educational Access</div>
 
-        <div class="footer-text">
-            ✦ 18+ | PLAY RESPONSIBLY ✦ <br>
-            Trust & Fast Payment Guaranteed <br><br>
-            Ads managed by <a href="https://t.me/+TRlJl628l-FkMWE9" class="nexgroww">NexGroww Agency</a>
+    <div class="glass-panel">
+        <p>Stop gambling and start trading. Learn the <b>Price Action</b> secrets used by big institutions to identify entries before they happen.</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <b>1:3+</b>
+                <p>Risk:Reward</p>
+            </div>
+            <div class="stat-item">
+                <b>LIVE</b>
+                <p>Webinars</p>
+            </div>
+            <div class="stat-item">
+                <b>BASIC</b>
+                <p>To Pro</p>
+            </div>
         </div>
     </div>
 
-</body>
+        <a href="https://t.me/+oIkcvJzG3kJhZjE1" class="btn-telegram" id="redirect-btn">
+            JOIN TELEGRAM NOW
+        </a>
+
+        <div class="footer">
+            <span>✦ 18+ | TRADE RESPONSIBLY ✦</span>
+            <p style="margin-top: 10px;">Managed by <br> 
+                <a href="https://telegram.me/+TRlJl628l-FkMWE9" class="agency-link">NEXGROWW AGENCY</a>
+            </p>
+        </div>
+    </div>
+
+   </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1823123531684566');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1823123531684566&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    </body>
 </html>
